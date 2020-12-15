@@ -34,7 +34,13 @@ public class RedisToJedis {
         System.out.println(jedis.get("gao"));
 
     }
+    @Test
+    public void string() {
+        Jedis jedis = RedisUtil.getJedisFromPool();
+        jedis.mset("str1","v1","str2","v2","str3","v3");
+        System.out.println(jedis.mget("str1","str2","str3"));
 
+    }
     @Test
     public void hash() {
         Jedis jedisFromPool = RedisUtil.getJedisFromPool();
